@@ -10,6 +10,8 @@ proc sql;
 create table rjcc.heart_data as
 select
 d.DONOR_ID,
+d.CONTROLLED_DON,
+d.CORE_COOL_DON,
 d.ABO_DON,
 d.AGE_DON,
 d.BMI_DON_CALC,
@@ -63,6 +65,7 @@ t.COD_OSTXT,
 t.COD2,
 t.REINTUBATED,
 t.POST_TX_VENT_SUPPORT,
+t.ECD_DONOR,
 case
     when HR_INITIAL_FLUSH=307 then "CELSIOR"
     when HR_INITIAL_FLUSH=312 then "HTK"
@@ -123,7 +126,6 @@ select (FLUSH);
   when('CELSIOR')  FLUSH6='EX';
   when('HTK')  FLUSH6='EX';
   when('UW')  FLUSH6='IC';
-  when('DELNIDO')  FLUSH6='EX';
   otherwise FLUSH6='';
 end;
 run;
