@@ -68,8 +68,8 @@ t.POST_TX_VENT_SUPPORT,
 t.ECD_DONOR,
 case
     when HR_INITIAL_FLUSH=307 then "CELSIOR"
-    when HR_INITIAL_FLUSH=312 then "HTK"
-  	when HR_INITIAL_FLUSH=313 then "UW"
+    when HR_INITIAL_FLUSH in (308, 312) then "HTK"
+  	when HR_INITIAL_FLUSH in (300, 313) then "UW"
   	when upper(HR_INITIAL_FLUSH_OSTXT) like '%CELSIOR%' then "CELSIOR"
     when upper(HR_INITIAL_FLUSH_OSTXT) like '%HTK%' then "HTK"
     when upper(HR_INITIAL_FLUSH_OSTXT) like '%UW%' then "UW"
