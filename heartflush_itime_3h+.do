@@ -19,7 +19,8 @@ sts graph, failure ytitle(Proportion of Event) ///
     xlabel (0(6)66) ///
     xtitle(Month) by(`grp') title (Kaplan-Meier Incidence of `event') ///
 	  caption ("Log-rank test p = `pv'") ///
-    subtitle(Ischemia Time >= 3 Hours for Jan 2015 ~ Oct 2021)
+    subtitle(Ischemia >= 3 Hours for Jan 2015 ~ Oct 2021) ///
+    risktable (0(12)66)
 graph export km_3h_up_`e'_`grp'.pdf, replace
 end
 

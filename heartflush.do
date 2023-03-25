@@ -17,7 +17,8 @@ sts graph, failure ytitle(Proportion of Event) ///
     xlabel (0(6)66) ///
     xtitle(Month) by(`grp') title (Kaplan-Meier Incidence of `event') ///
 	  caption ("Log-rank test p = `pv'") ///
-    subtitle(Crude Data for Jan 2015 ~ Oct 2021)
+    subtitle(Whole Cohort for Jan 2015 ~ Oct 2021) ///
+    risktable (0(12)66)
 graph export km_`e'_`grp'.pdf, replace
 end
 

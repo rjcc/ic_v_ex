@@ -20,7 +20,8 @@ sts graph, failure ytitle(Proportion of Event) ///
     xtitle(Month) by(`grp') title (Kaplan-Meier Incidence of `event') ///
 	  caption ("Log-rank test p = `pv'") ///
     adjustfor(`adj') ///
-    subtitle(Adjusted for `adj' for Jan 2015 ~ Oct 2021)
+    subtitle(Adjusted for `adj' for Jan 2015 ~ Oct 2021)  
+*   risktable (0(12)66)...unable to combine with adjustfor()
 encode `grp', generate (`grp'a)
 stcox `grp'a ISCHTIME
 drop `grp'a
