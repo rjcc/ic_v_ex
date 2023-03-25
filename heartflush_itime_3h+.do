@@ -22,6 +22,8 @@ sts graph, failure ytitle(Proportion of Event) ///
     subtitle(Ischemia >= 3 Hours for Jan 2015 ~ Oct 2021) ///
     risktable (0(12)66)
 graph export km_3h_up_`e'_`grp'.pdf, replace
+graph export km_3h_up_`e'_`grp'.jpg, replace
+
 end
 
 program heartflush

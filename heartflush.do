@@ -20,6 +20,8 @@ sts graph, failure ytitle(Proportion of Event) ///
     subtitle(Whole Cohort for Jan 2015 ~ Oct 2021) ///
     risktable (0(12)66)
 graph export km_`e'_`grp'.pdf, replace
+graph export km_`e'_`grp'.jpg, replace
+
 end
 
 program heartflush

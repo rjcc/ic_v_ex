@@ -22,6 +22,8 @@ sts graph, failure ytitle(Proportion of Event) ///
     subtitle(Ischemia >= 3h or Donors >= 50yo for Jan 2015 ~ Oct 2021) ///
     risktable (0(12)66)
 graph export km_age_don_50up_itime_4h+_`e'_`grp'.pdf, replace
+graph export km_age_don_50up_itime_4h+_`e'_`grp'.jpg, replace
+
 end
 
 program heartflush
