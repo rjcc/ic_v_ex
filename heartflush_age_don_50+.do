@@ -14,15 +14,15 @@ replace `fu'=0.1 if `fu'==0
 stset `fu', failure(`e') scale(`unit')
 sts test `grp'
 local pv = "0" + substr(string(chi2tail(`r(df)', `r(chi2)')),1,5)
+sts list, failure risktable(0(6)66) by(`grp')
 sts graph, failure ytitle(Proportion of Event) ///
     ylabel(, angle(horizontal)) ///
     xlabel (0(6)66) ///
     xtitle(Month) by(`grp') title (Kaplan-Meier Incidence of `event') ///
 	  caption ("Log-rank test p = `pv'") ///
-    subtitle(Donors >= 50 years old for Jan 2015 ~ Oct 2021) ///
-    risktable (0(12)66)
+    subtitle("Donors >= 50 years old for Jan 2015 ~ Oct 2021") 
 graph export km_age_don_50up_`e'_`grp'.pdf, replace
-graph export km_age_don_50up_`e'_`grp'.jpg, replace
+graph export km_age_don_50up_`e'_`grp'.jpg, replace quality(100) width(1600) height(1200)
 
 end
 

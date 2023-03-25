@@ -14,19 +14,20 @@ replace `fu'=0.1 if `fu'==0
 stset `fu', failure(`e') scale(`unit')
 sts test `grp', strata(`adj')
 local pv = "0" + substr(string(chi2tail(`r(df)', `r(chi2)')),1,5)
+sts list, failure risktable(0(6)66) by(`grp') adjustfor(`adj')
 sts graph, failure ytitle(Proportion of Event) ///
     ylabel(, angle(horizontal)) ///
     xlabel (0(6)66) ///
     xtitle(Month) by(`grp') title (Kaplan-Meier Incidence of `event') ///
 	  caption ("Log-rank test p = `pv'") ///
     adjustfor(`adj') ///
-    subtitle(Adjusted for `adj' for Jan 2015 ~ Oct 2021)
+    subtitle("Adjusted for `adj' for Jan 2015 ~ Oct 2021")
 *   risktable (0(12)66)...unable to combine with adjustfor()
 encode `grp', generate (`grp'a)
 stcox `grp'a ISCHTIME
 drop `grp'a
 graph export km_`e'_`grp'_match.pdf, replace
-graph export km_`e'_`grp'_match.jpg, replace
+graph export km_`e'_`grp'_match.jpg, replace quality(100) width(1600) height(1200)
 end
 
 program ilca
