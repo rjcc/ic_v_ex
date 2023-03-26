@@ -20,7 +20,7 @@ sts graph, failure ytitle(Proportion of Event) ///
     xlabel (0(6)66) ///
     xtitle(Month) by(`grp') title (Kaplan-Meier Incidence of `event') ///
 	  caption ("Log-rank test p = `pv'") ///
-    subtitle("Ischemia >= 3h or Donors >= 50yo for Jan 2015 ~ Oct 2021")
+    subtitle("Ischemia >= 4h or Donors >= 50yo for Jan 2015 ~ Oct 2021")
 graph export km_age_don_50up_itime_4h+_`e'_`grp'.pdf, replace
 graph export km_age_don_50up_itime_4h+_`e'_`grp'.jpg, replace quality(100) width(1600) height(1200)
 
